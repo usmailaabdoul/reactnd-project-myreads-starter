@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import { MovieCard, BookSection } from './components';
+import { BookCard, BookSection } from './components';
 import { update } from './BooksAPI'
 import { getCurrentlyReading, getWantToReading, getRead } from './utils/helpers';
 
@@ -46,7 +46,7 @@ const Home = () => {
         <div>
           <BookSection title="Currently Reading">
             {currentlyReading.map((book, index) => (
-              <MovieCard
+              <BookCard
                 book={book}
                 key={index}
                 moveBook={(book, shelf) => moveBook(book, shelf)}
@@ -55,7 +55,7 @@ const Home = () => {
           </BookSection>
           <BookSection title="Want to Read">
             {wantToRead.map((book, index) => (
-              <MovieCard
+              <BookCard
                 book={book}
                 key={index}
                 moveBook={(book, shelf) => moveBook(book, shelf)}
@@ -64,7 +64,7 @@ const Home = () => {
           </BookSection>
           <BookSection title="Read">
             {read.map((book, index) => (
-              <MovieCard
+              <BookCard
                 book={book}
                 key={index}
                 moveBook={(book, shelf) => moveBook(book, shelf)}

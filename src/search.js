@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import { search, update, getAll } from './BooksAPI';
-import { MovieCard } from './components';
+import { BookCard } from './components';
 
 const Search = ({ history }) => {
   const [items, setItems] = useState([]);
@@ -54,7 +54,7 @@ const Search = ({ history }) => {
             }
 
             return (
-              <MovieCard
+              <BookCard
                 book={book}
                 key={index}
                 moveBook={(book, shelf) => moveBook(book, shelf)}

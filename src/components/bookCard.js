@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
 
-const MovieCard = ({book, moveBook}) => {
+const BookCard = ({book, moveBook}) => {
   const {imageLinks, authors, title, shelf} = book;
   const [activeValue, setActiveValue] = useState(shelf);
 
@@ -38,7 +38,7 @@ const MovieCard = ({book, moveBook}) => {
   )
 }
 
-MovieCard.propTypes = {
+BookCard.propTypes = {
   book: PropTypes.shape({
     shelf: PropTypes.string,
     title: PropTypes.string.isRequired,
@@ -49,4 +49,4 @@ MovieCard.propTypes = {
   fromSearch: PropTypes.bool
 };
 
-export default MovieCard;
+export default BookCard;

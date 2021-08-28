@@ -1,7 +1,7 @@
-import MovieCard from './movieCard';
+import BookCard from './bookCard';
 import BookSection from './bookSection';
 
 export {
-  MovieCard,
+  BookCard,
   BookSection
 }
