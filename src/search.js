@@ -14,11 +14,20 @@ const Search = ({ history }) => {
       .catch(error => console.log(error))
   }, []);
 
+  useEffect(() => {
+    if (searchTerm.length === 0) {
+      setItems([])
+    }
+  }, [searchTerm]);
+  
   const onSearch = async (value) => {
     setSearchTerm(value)
     try {
       const res = await search(value);
-      setItems(res)
+      if (res.error) {
+        return setItems([]);
+      }
+      setItems(res);
     } catch (error) {
       console.log(error)
     }
@@ -47,6 +56,12 @@ const Search = ({ history }) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
+          {items.length === 0 && searchTerm.length > 0 && (
+            <div>Book not found, enter a valid query.</div>
+          )}
+          {items.length === 0 && searchTerm.length === 0 && (
+            <div>No books found, enter a serch term.</div>
+          )}
           {items && items.map((book, index) => {
             let i = allBooks.findIndex((b) => b.id === book.id);
             if (i > -1) {
