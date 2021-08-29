@@ -1,6 +1,6 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is project is the final assessment project for Udacity's React Fundamentals course. The project contains a well defined UI which has 3 main sections called book shelves on the home page for users to view their books, users can view books they are currenty reading, they want to read and the books they have read, they can also search for new books using key terms and add this books to the various shelves. Finally a user is also able to move a book from one shelf to the other.
 
 ## To Get Started
 
@@ -18,7 +18,7 @@ This is the starter template for the final assessment project for Udacity's Reac
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── component # This folder containes the different components used throughout the application.
-    │   ├── bookSection.js # This component is used to render the book shelfs.
+    │   ├── bookSection.js # This component is used to render the book shelves.
     │   ├── bookCard.js # This component is the individual book rendered in the book shelf.
     │   └── index.js # this file contains the components which are exported.
     ├── utils # This folder contains different usefull elements of the application which are neither components or pages.

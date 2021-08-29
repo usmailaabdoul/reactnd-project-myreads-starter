@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
+import img from '../icons/404.png';
 
-const BookCard = ({book, moveBook}) => {
-  const {imageLinks, authors, title, shelf} = book;
+const BookCard = ({ book, moveBook }) => {
+  const { imageLinks, authors, title, shelf } = book;
   const [activeValue, setActiveValue] = useState(shelf);
 
   useEffect(() => {
@@ -17,7 +18,11 @@ const BookCard = ({book, moveBook}) => {
     <li>
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks.smallThumbnail})` }}></div>
+          {imageLinks ? (
+            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks.smallThumbnail})` }}></div>
+          ) : (
+            <img className="book-cover" src={img} alt="404-error" style={{ width: 128, height: 193 }} />
+          )}
           <div className="book-shelf-changer">
             <select onChange={(e) => onChange(e.target.value)} value={activeValue}>
               <option value="move" disabled >Move to...</option>
@@ -31,8 +36,8 @@ const BookCard = ({book, moveBook}) => {
         <div className="book-title">{title}</div>
         <div className="book-authors">
           {authors && authors
-            .map((author, index) => index === authors.length -1 ? `${author}` : `${author}, `)}
-          </div>
+            .map((author, index) => index === authors.length - 1 ? `${author}` : `${author}, `)}
+        </div>
       </div>
     </li>
   )
