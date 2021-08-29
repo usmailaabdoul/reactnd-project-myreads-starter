@@ -4,7 +4,7 @@ import img from '../icons/404.png';
 
 const BookCard = ({ book, moveBook }) => {
   const { imageLinks, authors, title, shelf } = book;
-  const [activeValue, setActiveValue] = useState(shelf);
+  const [activeValue, setActiveValue] = useState('none');
 
   useEffect(() => {
     setActiveValue(shelf)
@@ -29,7 +29,7 @@ const BookCard = ({ book, moveBook }) => {
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
               <option value="read">Read</option>
-              <option value="none" selected>None</option>
+              <option value="none">None</option>
             </select>
           </div>
         </div>
@@ -47,8 +47,8 @@ BookCard.propTypes = {
   book: PropTypes.shape({
     shelf: PropTypes.string,
     title: PropTypes.string.isRequired,
-    authors: PropTypes.array.isRequired,
-    imageLinks: PropTypes.shape({ smallThumbnail: PropTypes.string.isRequired })
+    authors: PropTypes.array,
+    imageLinks: PropTypes.shape({ smallThumbnail: PropTypes.string })
   }),
   moveBook: PropTypes.func.isRequired,
   fromSearch: PropTypes.bool

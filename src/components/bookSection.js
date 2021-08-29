@@ -14,7 +14,7 @@ const BookSection = ({ children, title }) => {
 }
 
 BookSection.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 };
 

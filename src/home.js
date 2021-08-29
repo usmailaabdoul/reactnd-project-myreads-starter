@@ -45,7 +45,7 @@ const Home = () => {
       <div className="list-books-content">
         <div>
           <BookSection title="Currently Reading">
-            {currentlyReading.map((book, index) => (
+            {currentlyReading && currentlyReading.map((book, index) => (
               <BookCard
                 book={book}
                 key={index}
@@ -54,7 +54,7 @@ const Home = () => {
             ))}
           </BookSection>
           <BookSection title="Want to Read">
-            {wantToRead.map((book, index) => (
+            {wantToRead && wantToRead.map((book, index) => (
               <BookCard
                 book={book}
                 key={index}
@@ -63,7 +63,7 @@ const Home = () => {
             ))}
           </BookSection>
           <BookSection title="Read">
-            {read.map((book, index) => (
+            {read && read.map((book, index) => (
               <BookCard
                 book={book}
                 key={index}
