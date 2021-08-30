@@ -1,31 +1,20 @@
 import {getAll} from '../BooksAPI';
 
-export const getCurrentlyReading = async () => {
+const getBooks = (shelf) => async () => {
   try {
     const res = await getAll();
-    const books = res.filter(r => r.shelf === "currentlyReading")
-    return books
+    return res.filter(r => r.shelf === shelf);
   } catch (error) {
     console.log(error)
   }
 }
 
-export const getWantToReading = async () => {
-  try {
-    const res = await getAll();
-    const books = res.filter(r => r.shelf === "wantToRead")
-    return books
-  } catch (error) {
-    console.log(error)
-  }
-}
+const getRead = getBooks('read');
+const getWantToRead = getBooks('wantToRead');
+const getCurrentlyReading = getBooks('currentlyReading');
 
-export const getRead = async () => {
-  try {
-    const res = await getAll();
-    const books = res.filter(r => r.shelf === "read")
-    return books
-  } catch (error) {
-    console.log(error)
-  }
+export {
+  getRead,
+  getWantToRead,
+  getCurrentlyReading,
 }

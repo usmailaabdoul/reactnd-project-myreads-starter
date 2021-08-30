@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { BookCard, BookSection } from './components';
 import { update } from './BooksAPI'
-import { getCurrentlyReading, getWantToReading, getRead } from './utils/helpers';
+import { getCurrentlyReading, getRead, getWantToRead } from './utils/helpers';
 
 const Home = () => {
   const [currentlyReading, setCurrentlyReading] = useState([]);
@@ -18,7 +18,7 @@ const Home = () => {
       let resA = await getCurrentlyReading();
       setCurrentlyReading(resA)
 
-      let resB = await getWantToReading();
+      let resB = await getWantToRead();
       setWantToRead(resB)
 
       let resC = await getRead()

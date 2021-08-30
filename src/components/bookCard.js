@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
 import img from '../icons/404.png';
@@ -54,4 +55,4 @@ BookCard.propTypes = {
   fromSearch: PropTypes.bool
 };
 
-export default BookCard;
+export default React.memo(BookCard)
